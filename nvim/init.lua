@@ -8,14 +8,6 @@ require('packer').startup(function(use)
    use 'bluz71/vim-moonfly-colors'
 
    use {
-      'windwp/nvim-autopairs',
-      event = 'InsertEnter',
-      config = function()
-         require 'nvim-autopairs'.setup {}
-      end
-   }
-
-   use {
       'akinsho/bufferline.nvim',
       requires = {'nvim-tree/nvim-web-devicons'},
       config = function()
@@ -36,13 +28,6 @@ require('packer').startup(function(use)
       run = ':TSUpdate',
       config = function()
          require'treesitter_cfg'
-      end
-   }
-
-   use {
-      'numToStr/Comment.nvim',
-      config = function ()
-         require'commentary_cfg'
       end
    }
 
@@ -91,7 +76,7 @@ require('packer').startup(function(use)
    }
 
    use {
-      'echasnovski/mini.misc',
+      'echasnovski/mini.nvim',
       config = function ()
          require'mini_cfg'
       end
