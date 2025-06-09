@@ -1,0 +1,18 @@
+code, pre, tt, kbd, samp {
+   font-family: "JetBrains Mono Nerd Font", "Fira Code", monospace !important;
+   font-size: 0.9em !important;
+   font-variant-ligatures: discretionary-ligatures;
+   line-height: 1.0 !important;
+}
+
+.hljs, [class*="language-"] {
+   font-family: "JetBrains Mono Nerd Font", monospace !important;
+}
+
+.select-menu-item code,
+.dropdown-menu code,
+.copyable-terminal code,
+.js-code-copy-container code {
+    font-family: "JetBrains Mono Nerd Font", monospace !important;
+    font-size: 0.9em !important;
+}
