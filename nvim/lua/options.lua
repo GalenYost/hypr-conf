@@ -13,6 +13,8 @@ vim.opt.termguicolors = true
 
 vim.g.mapleader = ' '
 
+vim.g.moonflyTransparent = true
+
 if vim.fn.has('clipboard') == 1 then
   local is_wayland = os.getenv("WAYLAND_DISPLAY") ~= nil
   local is_x11 = os.getenv("DISPLAY") ~= nil
