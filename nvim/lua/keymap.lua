@@ -12,6 +12,7 @@ keymap.set('n', '<leader>[', '<Cmd>bprevious<CR>', opts)
 keymap.set('n', '<leader>]', '<Cmd>bnext<CR>', opts)
 
 keymap.set('n', '<leader>q', '<Cmd>bdelete<CR>', opts)
+keymap.set("n", "<leader>f", "<C-w>p", opts)
 
 vim.api.nvim_create_autocmd("CmdlineLeave", {
    pattern = { "/", "\\?" },
