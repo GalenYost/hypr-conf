@@ -14,6 +14,11 @@ keymap.set('n', '<leader>]', '<Cmd>bnext<CR>', opts)
 keymap.set('n', '<leader>q', '<Cmd>bdelete<CR>', opts)
 keymap.set("n", "<leader>f", "<C-w>p", opts)
 
+vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', opts)
+vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', opts)
+vim.api.nvim_set_keymap('n', '<Left>', '<Nop>', opts)
+vim.api.nvim_set_keymap('n', '<Right>', '<Nop>', opts)
+
 vim.api.nvim_create_autocmd("CmdlineLeave", {
    pattern = { "/", "\\?" },
    command = "nohlsearch",

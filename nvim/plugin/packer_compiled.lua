@@ -150,6 +150,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19bufferline_cfg\frequire\0", "config", "bufferline.nvim")
+time([[Config for bufferline.nvim]], false)
+-- Config for: mini.nvim
+time([[Config for mini.nvim]], true)
+try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rmini_cfg\frequire\0", "config", "mini.nvim")
+time([[Config for mini.nvim]], false)
+-- Config for: snacks.nvim
+time([[Config for snacks.nvim]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15snacks_cfg\frequire\0", "config", "snacks.nvim")
+time([[Config for snacks.nvim]], false)
+-- Config for: blink.cmp
+time([[Config for blink.cmp]], true)
+try_loadstring("\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\14blink_cfg\frequire\0", "config", "blink.cmp")
+time([[Config for blink.cmp]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19treesitter_cfg\frequire\0", "config", "nvim-treesitter")
@@ -166,22 +182,6 @@ time([[Config for cord.nvim]], false)
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\nsigns\2\17virtual_text\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19bufferline_cfg\frequire\0", "config", "bufferline.nvim")
-time([[Config for bufferline.nvim]], false)
--- Config for: mini.nvim
-time([[Config for mini.nvim]], true)
-try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rmini_cfg\frequire\0", "config", "mini.nvim")
-time([[Config for mini.nvim]], false)
--- Config for: blink.cmp
-time([[Config for blink.cmp]], true)
-try_loadstring("\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\14blink_cfg\frequire\0", "config", "blink.cmp")
-time([[Config for blink.cmp]], false)
--- Config for: snacks.nvim
-time([[Config for snacks.nvim]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15snacks_cfg\frequire\0", "config", "snacks.nvim")
-time([[Config for snacks.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
