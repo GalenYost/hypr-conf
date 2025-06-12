@@ -32,7 +32,7 @@ fi
 # aliases
 alias dotnet_run='dotnet run --property WarningLevel=0'
 alias ls='ls --color=auto'
-alias l='ls -l --color=auto'
+alias l='ls -l -a --color=auto'
 alias grep='grep --color=auto'
 alias ff='fastfetch'
 
