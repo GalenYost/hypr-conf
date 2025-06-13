@@ -8,14 +8,6 @@ require('packer').startup(function(use)
    use 'bluz71/vim-moonfly-colors'
 
    use {
-      'akinsho/bufferline.nvim',
-      requires = {'nvim-tree/nvim-web-devicons'},
-      config = function()
-         require'bufferline_cfg'
-      end
-   }
-
-   use {
       'vyfor/cord.nvim',
       config = function ()
          require'cord_cfg'
