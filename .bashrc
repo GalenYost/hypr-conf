@@ -5,10 +5,15 @@
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
+# options
+set -o vi
+bind -f ~/.inputrc
+
 # PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export NVM_DIR="$HOME/.nvm"
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
 
 # load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -31,16 +36,30 @@ fi
 
 # aliases
 alias dotnet_run='dotnet run --property WarningLevel=0'
+
 alias ls='ls --color=auto'
 alias l='ls -l -a --color=auto'
 alias grep='grep --color=auto'
+
 alias ff='fastfetch'
-alias tauri_npm='WEBKIT_DISABLE_DMABUF_RENDERER=1 npm run tauri dev'
-alias tauri_deno='WEBKIT_DISABLE_DMABUF_RENDERER=1 deno task tauri dev'
+
+alias gs='git status --short'
+alias gd='git diff'
+
+alias ga='git add'
+alias gc='git commit'
+
+alias gp='git push'
+alias gu='git pull'
+
+alias gl='git log'
+alias gb='git branch'
+
+alias gi='git init'
+alias gcl='git clone'
 
 # aliases (functions)
 cpp_run() {
   local name="${1:-main}"
   g++ "./$name.cpp" -o "./$name" && "./$name"
 }
-. "/home/user/.deno/env"
