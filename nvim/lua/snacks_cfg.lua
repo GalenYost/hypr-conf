@@ -1,13 +1,12 @@
 require'snacks'.setup({
    explorer = {
       enabled = true,
+      hidden = true,
+      ignored = true,
       replace_netrw = true,
-      show_hidden = true,
-      window = 'float',
-   },
+      exclude = { "node_modules/", ".git/" }
+   }
 })
 
 vim.keymap.set("n", "<leader><leader>",
-   function() require'snacks'.explorer() end,
-  { desc = "Toggle Snacks Explorer" }
-)
+   function() require'snacks'.explorer() end)
