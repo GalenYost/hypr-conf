@@ -3,16 +3,11 @@ local lspconfig = require('lspconfig')
 local no_completion_caps = vim.lsp.protocol.make_client_capabilities()
 no_completion_caps.textDocument.completion = nil
 
-if no_completion_caps.textDocument.signatureHelp then
-  no_completion_caps.textDocument.signatureHelp = nil
-end
-
 local servers = {
-   clangd    = {},
-   csharp_ls = {},
+   clangd = {},
    rust_analyzer = {},
-   tailwindcss  = {},
-   prismals     = {},
+   tailwindcss = {},
+   prismals = {},
    ts_ls = {
       root_dir = function(fname)
          local deno = lspconfig.util.root_pattern("deno.json", "deno.json")(fname)
