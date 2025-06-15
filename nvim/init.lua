@@ -32,18 +32,8 @@ require('packer').startup(function(use)
    }
 
    use {
-      'saghen/blink.cmp',
-      requires = 'rafamadriz/friendly-snippets',
-      run = 'cargo build --release',
-      config = function ()
-         require'blink_cfg'
-      end
-   }
-
-   use {
       'neovim/nvim-lspconfig',
       requires = {
-         'saghen/blink.cmp',
          'williamboman/nvim-lsp-installer',
       },
       config = function()

@@ -1,16 +1,23 @@
 local lspconfig = require('lspconfig')
 
+local no_completion_caps = vim.lsp.protocol.make_client_capabilities()
+no_completion_caps.textDocument.completion = nil
+
+if no_completion_caps.textDocument.signatureHelp then
+  no_completion_caps.textDocument.signatureHelp = nil
+end
+
 local servers = {
-   clangd = {},
+   clangd    = {},
    csharp_ls = {},
    rust_analyzer = {},
-   tailwindcss = {},
-   prismals = {},
+   tailwindcss  = {},
+   prismals     = {},
    ts_ls = {
-      root_dir = function (filename)
-         local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.json")(filename);
-         if denoRootDir then return nil end
-         return lspconfig.util.root_pattern("package.json")(filename);
+      root_dir = function(fname)
+         local deno = lspconfig.util.root_pattern("deno.json", "deno.json")(fname)
+         if deno then return nil end
+         return lspconfig.util.root_pattern("package.json")(fname)
       end,
    },
    denols = {},
@@ -19,15 +26,16 @@ local servers = {
    lua_ls = {
       settings = {
          Lua = {
-            diagnostics = {
-               globals = {'vim'}
-            }
-         }
-      }
+            diagnostics = { globals = { "vim" } },
+         },
+      },
    },
 }
 
-for server, config in pairs(servers) do
-   config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-   lspconfig[server].setup(config)
+for name, cfg in pairs(servers) do
+   cfg.capabilities = vim.tbl_deep_extend("force",
+   cfg.capabilities or {},
+      no_completion_caps
+   )
+   lspconfig[name].setup(cfg)
 end
