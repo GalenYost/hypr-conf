@@ -1,15 +1,11 @@
 require'snacks'.setup({
-   explorer = {
-      replace_netrw = true,
-      enabled = true,
-      hidden = true,
-      ignored = true,
-      exclude = { "node_modules/", ".git/" },
-   },
    picker = {
       sources = {
          explorer = {
+            hidden = true,
+            ignored = true,
             auto_close = true,
+            exclude = { "node_modules/", ".git/" },
          }
       }
    }
