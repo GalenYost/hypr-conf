@@ -1,6 +1,5 @@
 require('cord').setup {
    editor = {
-      client = 'neovim',
       tooltip = 'God-Tier Text Editor',
    },
    idle = {
@@ -9,6 +8,11 @@ require('cord').setup {
    },
    text = {
       workspace = '',
-      file_browser = '',
    },
+   filter = function()
+      if vim.bo.filetype == "snacks_picker_list" then
+         return false
+      end
+      return true
+   end,
 }
