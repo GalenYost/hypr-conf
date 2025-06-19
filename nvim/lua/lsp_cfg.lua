@@ -6,7 +6,6 @@ no_completion_caps.textDocument.completion = nil
 local servers = {
    clangd = {},
    rust_analyzer = {},
-   tailwindcss = {},
    prismals = {},
    ts_ls = {
       root_dir = function(fname)
