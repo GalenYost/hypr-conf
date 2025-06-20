@@ -1,18 +1,24 @@
-vim.opt.background = 'dark'
+vim.o.background = 'dark'
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.expandtab = true
-vim.opt.smarttab = true
-vim.opt.shiftwidth = 3
-vim.opt.softtabstop = 3
-vim.opt.tabstop = 3
+vim.o.expandtab = true
+vim.o.smarttab = true
+vim.o.shiftwidth = 3
+vim.o.softtabstop = 3
+vim.o.tabstop = 3
 
-vim.opt.termguicolors = true
+vim.o.smartcase = true
+vim.o.ignorecase = true
+vim.o.breakindent = true
+vim.o.wildignorecase = true
+
+vim.o.termguicolors = true
 
 vim.g.mapleader = ' '
-
+vim.g.maplocalleader = ' '
+vim.g.netrw_banner = 0
 vim.g.moonflyTransparent = true
 
 if vim.fn.has('clipboard') == 1 then

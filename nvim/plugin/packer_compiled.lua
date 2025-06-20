@@ -80,6 +80,12 @@ _G.packer_plugins = {
     path = "/home/user/.local/share/nvim/site/pack/packer/start/cord.nvim",
     url = "https://github.com/vyfor/cord.nvim"
   },
+  ["gruber-darker.nvim"] = {
+    config = { "\27LJ\2\nA\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\1K\0\1\0\18gruber-darker\16colorscheme\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/user/.local/share/nvim/site/pack/packer/start/gruber-darker.nvim",
+    url = "https://github.com/blazkowolf/gruber-darker.nvim"
+  },
   ["lualine.nvim"] = {
     config = { "\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16lualine_cfg\frequire\0" },
     loaded = true,
@@ -124,15 +130,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/user/.local/share/nvim/site/pack/packer/start/snacks.nvim",
     url = "https://github.com/folke/snacks.nvim"
-  },
-  ["vim-moonfly-colors"] = {
-    loaded = true,
-    path = "/home/user/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
-    url = "https://github.com/bluz71/vim-moonfly-colors"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: gruber-darker.nvim
+time([[Config for gruber-darker.nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\4\0\0066\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\1K\0\1\0\18gruber-darker\16colorscheme\bcmd\bvim\0", "config", "gruber-darker.nvim")
+time([[Config for gruber-darker.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\nsigns\2\17virtual_text\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: cord.nvim
+time([[Config for cord.nvim]], true)
+try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcord_cfg\frequire\0", "config", "cord.nvim")
+time([[Config for cord.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16lualine_cfg\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 -- Config for: mini.nvim
 time([[Config for mini.nvim]], true)
 try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rmini_cfg\frequire\0", "config", "mini.nvim")
@@ -145,18 +162,6 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for snacks.nvim]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15snacks_cfg\frequire\0", "config", "snacks.nvim")
 time([[Config for snacks.nvim]], false)
--- Config for: cord.nvim
-time([[Config for cord.nvim]], true)
-try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcord_cfg\frequire\0", "config", "cord.nvim")
-time([[Config for cord.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16lualine_cfg\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\nsigns\2\17virtual_text\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

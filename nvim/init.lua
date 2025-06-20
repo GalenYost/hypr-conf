@@ -5,7 +5,14 @@ vim.cmd('packadd packer.nvim')
 
 require('packer').startup(function(use)
    use 'wbthomason/packer.nvim'
-   use 'bluz71/vim-moonfly-colors'
+
+   -- use 'bluz71/vim-moonfly-colors'
+   use {
+      'blazkowolf/gruber-darker.nvim',
+      config = function ()
+         vim.cmd.colorscheme('gruber-darker')
+      end
+   }
 
    use {
       'vyfor/cord.nvim',
@@ -18,7 +25,7 @@ require('packer').startup(function(use)
       'nvim-treesitter/nvim-treesitter',
       requires = {'nvim-tree/nvim-web-devicons'},
       run = ':TSUpdate',
-      config = function()
+      config = function ()
          require'treesitter_cfg'
       end
    }
@@ -26,7 +33,7 @@ require('packer').startup(function(use)
    use {
       'folke/snacks.nvim',
       requires = {'nvim-tree/nvim-web-devicons'},
-      config = function()
+      config = function ()
          require'snacks_cfg'
       end
    }
@@ -36,7 +43,7 @@ require('packer').startup(function(use)
       requires = {
          'williamboman/nvim-lsp-installer',
       },
-      config = function()
+      config = function ()
          require'lsp_cfg'
          vim.diagnostic.config({
             virtual_text = true,
@@ -49,7 +56,7 @@ require('packer').startup(function(use)
    use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons' },
-      config = function()
+      config = function ()
          require'lualine_cfg'
       end,
    }
@@ -61,5 +68,3 @@ require('packer').startup(function(use)
       end
    }
 end)
-
-vim.cmd('colorscheme moonfly')
