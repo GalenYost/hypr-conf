@@ -12,15 +12,16 @@ bind -f ~/.inputrc
 # PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$(npm config get prefix)/bin:$PATH"
+
+# env
 export NVM_DIR="$HOME/.nvm"
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
+[ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-
-# deno env
-[ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # fnm path
 FNM_PATH="$HOME/.local/share/fnm"
