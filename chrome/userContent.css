@@ -1,18 +1,29 @@
-code, pre, tt, kbd, samp {
-   font-family: "JetBrainsMono Nerd Font", monospace !important;
-   font-size: 0.9em !important;
-   font-variant-ligatures: discretionary-ligatures;
-   line-height: 1.0 !important;
+@namespace url("http://www.w3.org/1999/xhtml");
+
+* {
+   font-family: "SF Pro Text", "SF Pro Display", sans-serif !important;
 }
 
-.hljs, [class*="language-"] {
+pre,
+code,
+pre *,
+code * {
    font-family: "JetBrainsMono Nerd Font", monospace !important;
 }
 
-.select-menu-item code,
-.dropdown-menu code,
-.copyable-terminal code,
-.js-code-copy-container code {
-    font-family: "JetBrainsMono Nerd Font", monospace !important;
-    font-size: 0.9em !important;
+@-moz-document domain("github.com") {
+   input.input-monospace,
+   .input-monospace,
+   .blob-code-inner,
+   .blob-code,
+   .pl-c,
+   .pl-k,
+   .pl-s,
+   .pl-pds,
+   .pl-ent,
+   .pl-e,
+   .pl-ip
+   {
+       font-family: "JetBrainsMono Nerd Font", monospace !important;
+   }
 }
