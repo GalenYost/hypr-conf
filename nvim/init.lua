@@ -7,10 +7,17 @@ require('packer').startup(function(use)
    use 'wbthomason/packer.nvim'
 
    -- use 'bluz71/vim-moonfly-colors'
+   -- use {
+   --    'blazkowolf/gruber-darker.nvim',
+   --    config = function ()
+   --       vim.cmd.colorscheme('gruber-darker')
+   --    end
+   -- }
+
    use {
-      'blazkowolf/gruber-darker.nvim',
+      "folke/tokyonight.nvim",
       config = function ()
-         vim.cmd.colorscheme('gruber-darker')
+         vim.cmd.colorscheme("tokyonight-night")
       end
    }
 

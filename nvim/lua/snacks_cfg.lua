@@ -12,5 +12,5 @@ require'snacks'.setup({
 })
 
 vim.keymap.set("n", "<leader><leader>", function()
-   require('snacks').picker.explorer()
+   require'snacks'.picker.explorer()
 end)
