@@ -38,10 +38,13 @@ require('packer').startup(function(use)
    }
 
    use {
-      'folke/snacks.nvim',
-      requires = {'nvim-tree/nvim-web-devicons'},
-      config = function ()
-         require'snacks_cfg'
+      'nvim-telescope/telescope.nvim',
+      requires = {
+         {'nvim-lua/plenary.nvim'},
+         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+      },
+      config = function()
+         require'telescope_cfg'
       end
    }
 
