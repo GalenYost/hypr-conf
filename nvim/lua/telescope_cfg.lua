@@ -7,9 +7,9 @@ telescope.setup({
       layout_config = { prompt_position = 'top' },
       file_sorter = telescope.extensions.fzf.native_fzf_sorter,
       file_ignore_patterns = {
-         "^node_modules/",
-         "^%.git/",
-         "^target/",
+         "node_modules/",
+         ".git/",
+         "target/",
       },
    },
    pickers = {
