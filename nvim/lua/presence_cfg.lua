@@ -1,7 +1,7 @@
 require("presence").setup({
     auto_update         = true,
     neovim_image_text   = "God-Tier Text Editor",
-    main_image          = "neovim",
+    main_image          = "file",
     client_id           = "793271441293967371",
     log_level           = nil,
     debounce_timeout    = 5,

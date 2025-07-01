@@ -5,18 +5,7 @@ no_completion_caps.textDocument.completion = nil
 
 local servers = {
    clangd = {},
-   rust_analyzer = {
-      on_attach = function(client, bufnr)
-         if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_buf_create_autocmd('BufWritePre', {
-               buffer = bufnr,
-               callback = function()
-                  vim.lsp.buf.format({ async = false })
-               end,
-            })
-         end
-      end,
-   },
+   rust_analyzer = {},
    prismals = {},
    ts_ls = {
       root_dir = function(fname)
@@ -44,3 +33,10 @@ for name, cfg in pairs(servers) do
    )
    lspconfig[name].setup(cfg)
 end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+   pattern = "*.rs",
+   callback = function(args)
+      vim.lsp.buf.format({ bufnr = args.buf, async = false })
+   end,
+})
