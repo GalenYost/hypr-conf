@@ -22,11 +22,17 @@ require('packer').startup(function(use)
    }
 
    use {
-      'vyfor/cord.nvim',
+      'andweeb/presence.nvim',
       config = function ()
-         require'cord_cfg'
+         require'presence_cfg'
       end
    }
+   -- use {
+   --    'vyfor/cord.nvim',
+   --    config = function ()
+   --       require'cord_cfg'
+   --    end
+   -- }
 
    use {
       'nvim-treesitter/nvim-treesitter',
