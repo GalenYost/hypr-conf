@@ -17,7 +17,12 @@ require('packer').startup(function(use)
    use {
       "folke/tokyonight.nvim",
       config = function ()
-         vim.cmd.colorscheme("tokyonight-night")
+         require'tokyonight'.setup({
+            style = 'night',
+            transparent = true,
+            terminal_colors = true,
+         })
+         vim.cmd.colorscheme("tokyonight")
       end
    }
 
