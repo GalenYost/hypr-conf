@@ -59,6 +59,8 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
 
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -i "percentage"'
+
 # aliases (functions)
 cpp_run() {
   local name="${1:-main}"
