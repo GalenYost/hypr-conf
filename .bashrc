@@ -11,6 +11,7 @@ bind -f ~/.inputrc
 
 # PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/bin/:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
@@ -58,6 +59,9 @@ alias gb='git branch'
 
 alias gi='git init'
 alias gcl='git clone'
+
+alias bat_info='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias bat='bat_info | grep -e "percentage" -e "state"'
 
 # aliases (functions)
 cpp_run() {
