@@ -15,9 +15,9 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
 # env
+export RUSTFLAGS="-A dead_code"
 export COLORTERM=truecolor
 export NVM_DIR="$HOME/.nvm"
-export WEBKIT_DISABLE_DMABUF_RENDERER=1
 [ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # load nvm
