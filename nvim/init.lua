@@ -6,14 +6,6 @@ vim.cmd('packadd packer.nvim')
 require('packer').startup(function(use)
    use 'wbthomason/packer.nvim'
 
-   -- use 'bluz71/vim-moonfly-colors'
-   -- use {
-   --    'blazkowolf/gruber-darker.nvim',
-   --    config = function ()
-   --       vim.cmd.colorscheme('gruber-darker')
-   --    end
-   -- }
-
    use {
       "folke/tokyonight.nvim",
       config = function ()
@@ -66,6 +58,13 @@ require('packer').startup(function(use)
          })
          vim.opt.signcolumn = 'yes'
       end
+   }
+
+   use {
+      "stevearc/conform.nvim",
+      config = function ()
+         require'conform_cfg'
+      end,
    }
 
    use {

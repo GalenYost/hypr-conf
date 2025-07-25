@@ -74,6 +74,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["conform.nvim"] = {
+    config = { "\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16conform_cfg\frequire\0" },
+    loaded = true,
+    path = "/home/user/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["cord.nvim"] = {
     config = { "\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcord_cfg\frequire\0" },
     loaded = true,
@@ -98,7 +104,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\nsigns\2\17virtual_text\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0" },
+    config = { "\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\17virtual_text\2\nsigns\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0" },
     loaded = true,
     path = "/home/user/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -144,10 +150,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: tokyonight.nvim
+time([[Config for tokyonight.nvim]], true)
+try_loadstring("\27LJ\2\në\1\0\0\3\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0009\0\6\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\1\0\3\nstyle\nnight\20terminal_colors\2\16transparent\2\nsetup\15tokyonight\frequire\0", "config", "tokyonight.nvim")
+time([[Config for tokyonight.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\17virtual_text\2\nsigns\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: cord.nvim
 time([[Config for cord.nvim]], true)
 try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rcord_cfg\frequire\0", "config", "cord.nvim")
 time([[Config for cord.nvim]], false)
+-- Config for: conform.nvim
+time([[Config for conform.nvim]], true)
+try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16conform_cfg\frequire\0", "config", "conform.nvim")
+time([[Config for conform.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18telescope_cfg\frequire\0", "config", "telescope.nvim")
@@ -160,14 +178,6 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16lualine_cfg\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\nå\1\0\0\3\0\t\0\r6\0\0\0'\2\1\0B\0\2\0016\0\2\0009\0\3\0009\0\4\0005\2\5\0B\0\2\0016\0\2\0009\0\6\0'\1\b\0=\1\a\0K\0\1\0\byes\15signcolumn\bopt\1\0\2\nsigns\2\17virtual_text\2\vconfig\15diagnostic\bvim\flsp_cfg\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: tokyonight.nvim
-time([[Config for tokyonight.nvim]], true)
-try_loadstring("\27LJ\2\në\1\0\0\3\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0009\0\6\0'\2\1\0B\0\2\1K\0\1\0\16colorscheme\bcmd\bvim\1\0\3\nstyle\nnight\20terminal_colors\2\16transparent\2\nsetup\15tokyonight\frequire\0", "config", "tokyonight.nvim")
-time([[Config for tokyonight.nvim]], false)
 -- Config for: mini.nvim
 time([[Config for mini.nvim]], true)
 try_loadstring("\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rmini_cfg\frequire\0", "config", "mini.nvim")
