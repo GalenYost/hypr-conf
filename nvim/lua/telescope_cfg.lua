@@ -16,9 +16,20 @@ telescope.setup({
       find_files = {
          hidden = true,
       },
+      colorscheme = {
+         theme_list = {
+            "tokyonight-night",
+            "moonfly",
+            "gruber-darker",
+         },
+         enable_preview = true,
+      },
    },
 })
 
 telescope.load_extension('fzf')
 
-vim.keymap.set("n", "<leader><leader>", builtin.find_files, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>f", builtin.find_files, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>g", builtin.live_grep, { noremap = true, silent = true })
+
+vim.api.nvim_create_user_command("Schemes", builtin.colorscheme, { desc = "list colorschemes" })
