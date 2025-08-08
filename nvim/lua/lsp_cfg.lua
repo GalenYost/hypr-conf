@@ -1,9 +1,10 @@
 local lspconfig = require('lspconfig')
+local cmp = require 'cmp'
 
 local prisma_fmt_grp = vim.api.nvim_create_augroup("PrismaFormat", { clear = true })
 
-local no_completion_caps = vim.lsp.protocol.make_client_capabilities()
-no_completion_caps.textDocument.completion = nil
+-- local no_completion_caps = vim.lsp.protocol.make_client_capabilities()
+-- no_completion_caps.textDocument.completion = nil
 
 local servers = {
    clangd = {},
@@ -28,11 +29,68 @@ local servers = {
    },
 }
 
+cmp.setup({
+   snippet = {
+      expand = function(args)
+         vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      end,
+   },
+   window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+   },
+   mapping = cmp.mapping.preset.insert({
+      ["<Tab>"] = cmp.mapping(function(fallback)
+         if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+         else
+            fallback()
+         end
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+         if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+         else
+            fallback()
+         end
+      end, { "i", "s" }),
+      ["<CR>"] = cmp.mapping(function(fallback)
+         if cmp.visible() and cmp.get_selected_entry() then
+            cmp.confirm({ select = false })
+         else
+            fallback()
+         end
+      end, { "i", "s" }),
+   }),
+   sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' },
+   }, {
+      { name = 'buffer' },
+   })
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+   mapping = cmp.mapping.preset.cmdline(),
+   sources = {
+      { name = 'buffer' }
+   }
+})
+
+cmp.setup.cmdline(':', {
+   mapping = cmp.mapping.preset.cmdline(),
+   sources = cmp.config.sources({
+      { name = 'path' }
+   }, {
+      { name = 'cmdline' }
+   }),
+   matching = { disallow_symbol_nonprefix_matching = false }
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 for name, cfg in pairs(servers) do
-   cfg.capabilities = vim.tbl_deep_extend("force",
-   cfg.capabilities or {},
-      no_completion_caps
-   )
+   cfg.capabilities = capabilities
    lspconfig[name].setup(cfg)
 end
 
@@ -47,12 +105,26 @@ vim.api.nvim_create_autocmd("BufWritePre", {
    group = prisma_fmt_grp,
    pattern = "*.prisma",
    callback = function(args)
-   vim.lsp.buf.format({
-      bufnr = args.buf,
-      async = false,
-      filter = function(client)
-         return client.name == "prismals"
-      end,
-   })
+      vim.lsp.buf.format({
+         bufnr = args.buf,
+         async = false,
+         filter = function(client)
+            return client.name == "prismals"
+         end,
+      })
+   end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+   pattern = "*.json",
+   callback = function(args)
+      vim.lsp.buf.format({ bufnr = args.buf, async = false })
+   end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+   pattern = "*.lua",
+   callback = function(args)
+      vim.lsp.buf.format({ bufnr = args.buf, async = false })
    end,
 })

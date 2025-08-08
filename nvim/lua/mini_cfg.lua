@@ -7,3 +7,6 @@ require'mini.comment'.setup({
       comment_visual = '<leader>c',
    },
 })
+
+require'mini.icons'.setup()
+require'mini.icons'.tweak_lsp_kind()

@@ -10,7 +10,7 @@ require('packer').startup(function(use)
    use {
       'blazkowolf/gruber-darker.nvim',
       config = function()
-         require'gruber-darker'.setup({
+         require 'gruber-darker'.setup({
             bold = false,
             italic = {
                strings = false,
@@ -23,8 +23,8 @@ require('packer').startup(function(use)
 
    use {
       "folke/tokyonight.nvim",
-      config = function ()
-         require'tokyonight'.setup({
+      config = function()
+         require 'tokyonight'.setup({
             style = 'night',
             transparent = true,
             terminal_colors = true,
@@ -35,28 +35,28 @@ require('packer').startup(function(use)
 
    use {
       'vyfor/cord.nvim',
-      config = function ()
-         require'cord_cfg'
+      config = function()
+         require 'cord_cfg'
       end
    }
 
    use {
       'nvim-treesitter/nvim-treesitter',
-      requires = {'nvim-tree/nvim-web-devicons'},
+      requires = { 'nvim-tree/nvim-web-devicons' },
       run = ':TSUpdate',
-      config = function ()
-         require'treesitter_cfg'
+      config = function()
+         require 'treesitter_cfg'
       end
    }
 
    use {
       'nvim-telescope/telescope.nvim',
       requires = {
-         {'nvim-lua/plenary.nvim'},
+         { 'nvim-lua/plenary.nvim' },
          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
       },
       config = function()
-         require'telescope_cfg'
+         require 'telescope_cfg'
       end
    }
 
@@ -64,9 +64,16 @@ require('packer').startup(function(use)
       'neovim/nvim-lspconfig',
       requires = {
          'williamboman/nvim-lsp-installer',
+         'hrsh7th/cmp-nvim-lsp',
+         'hrsh7th/cmp-buffer',
+         'hrsh7th/cmp-path',
+         'hrsh7th/cmp-cmdline',
+         'hrsh7th/nvim-cmp',
+         'hrsh7th/cmp-vsnip',
+         'hrsh7th/vim-vsnip',
       },
-      config = function ()
-         require'lsp_cfg'
+      config = function()
+         require 'lsp_cfg'
          vim.diagnostic.config({
             virtual_text = true,
             signs = true
@@ -78,15 +85,15 @@ require('packer').startup(function(use)
    use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons' },
-      config = function ()
-         require'lualine_cfg'
+      config = function()
+         require 'lualine_cfg'
       end,
    }
 
    use {
       'echasnovski/mini.nvim',
-      config = function ()
-         require'mini_cfg'
+      config = function()
+         require 'mini_cfg'
       end
    }
 end)
