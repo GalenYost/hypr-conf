@@ -11,13 +11,17 @@ bind -f ~/.inputrc
 
 # PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/bin/:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
 # env
+export BROWSER=firefox
+export TERM=foot
+export EDITOR=nvim
 export RUSTFLAGS="-A dead_code"
-export COLORTERM=truecolor
 export NVM_DIR="$HOME/.nvm"
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
 [ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # load nvm
@@ -40,10 +44,11 @@ fi
 alias dotnet_run='dotnet run --property WarningLevel=0'
 
 alias ls='ls --color=auto'
-alias l='ls -l -a --color=auto --group-directories-first'
+alias l='ls -l -a --color=auto'
 alias grep='grep --color=auto'
 
 alias ff='fastfetch'
+alias of='onefetch'
 
 alias gs='git status --short'
 alias gd='git diff'
@@ -60,7 +65,8 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
 
-alias gm='git merge'
+alias bat_info='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias bat='bat_info | grep -e "percentage" -e "state"'
 
 # aliases (functions)
 cpp_run() {
