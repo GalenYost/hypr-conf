@@ -1,99 +1,41 @@
-require 'options'
 require 'keymap'
+require 'options'
 
-vim.cmd('packadd packer.nvim')
+vim.pack.add({
+   { src = 'https://github.com/vyfor/cord.nvim',                 name = 'cord' },
 
-require('packer').startup(function(use)
-   use 'wbthomason/packer.nvim'
+   {
+      src = 'https://github.com/nvim-lualine/lualine.nvim',
+      name = 'lualine',
+      { src = 'https://github.com/nvim-tree/nvim-web-devicons', name = 'devicons' },
+   },
 
-   use 'bluz71/vim-moonfly-colors'
-   use {
-      'blazkowolf/gruber-darker.nvim',
-      config = function()
-         require 'gruber-darker'.setup({
-            bold = false,
-            italic = {
-               strings = false,
-               comments = false,
-               folds = false,
-            }
-         })
-      end
-   }
+   { src = 'https://github.com/zaldih/themery.nvim',             name = 'themery' },
+   { src = 'https://github.com/echasnovski/mini.nvim',           name = 'mini' },
+   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', name = 'tree-sitter' },
 
-   use {
-      "folke/tokyonight.nvim",
-      config = function()
-         require 'tokyonight'.setup({
-            style = 'night',
-            transparent = true,
-            terminal_colors = true,
-         })
-         vim.cmd.colorscheme("tokyonight")
-      end
-   }
+   {
+      src = 'https://github.com/neovim/nvim-lspconfig',
+      name = 'lsp',
+      { src = 'https://github.com/williamboman/nvim-lsp-installer' },
+      { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+      { src = 'https://github.com/hrsh7th/cmp-buffer' },
+      { src = 'https://github.com/hrsh7th/cmp-path' },
+      { src = 'https://github.com/hrsh7th/cmp-cmdline' },
+      { src = 'https://github.com/hrsh7th/nvim-cmp' },
+      { src = 'https://github.com/hrsh7th/cmp-vsnip' },
+      { src = 'https://github.com/hrsh7th/vim-vsnip' },
+   },
 
-   use {
-      'vyfor/cord.nvim',
-      config = function()
-         require 'cord_cfg'
-      end
-   }
+   { src = 'https://github.com/folke/tokyonight.nvim',     name = 'tokyonight' },
+   { src = 'https://github.com/bluz71/vim-moonfly-colors', name = 'moonfly' },
+   { src = 'https://github.com/vague2k/vague.nvim',        name = 'vague' },
+   { src = 'https://github.com/rose-pine/neovim',          name = 'rose-pine' },
+})
 
-   use {
-      'nvim-treesitter/nvim-treesitter',
-      requires = { 'nvim-tree/nvim-web-devicons' },
-      run = ':TSUpdate',
-      config = function()
-         require 'treesitter_cfg'
-      end
-   }
-
-   use {
-      'nvim-telescope/telescope.nvim',
-      requires = {
-         { 'nvim-lua/plenary.nvim' },
-         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-      },
-      config = function()
-         require 'telescope_cfg'
-      end
-   }
-
-   use {
-      'neovim/nvim-lspconfig',
-      requires = {
-         'williamboman/nvim-lsp-installer',
-         'hrsh7th/cmp-nvim-lsp',
-         'hrsh7th/cmp-buffer',
-         'hrsh7th/cmp-path',
-         'hrsh7th/cmp-cmdline',
-         'hrsh7th/nvim-cmp',
-         'hrsh7th/cmp-vsnip',
-         'hrsh7th/vim-vsnip',
-      },
-      config = function()
-         require 'lsp_cfg'
-         vim.diagnostic.config({
-            virtual_text = true,
-            signs = true
-         })
-         vim.opt.signcolumn = 'yes'
-      end
-   }
-
-   use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons' },
-      config = function()
-         require 'lualine_cfg'
-      end,
-   }
-
-   use {
-      'echasnovski/mini.nvim',
-      config = function()
-         require 'mini_cfg'
-      end
-   }
-end)
+require 'configs.cord'
+require 'configs.lsp'
+require 'configs.lualine'
+require 'configs.mini'
+require 'configs.treesitter'
+require 'configs.themery'

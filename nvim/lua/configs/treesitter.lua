@@ -14,3 +14,13 @@ require('nvim-treesitter.configs').setup {
       additional_vim_regex_highlighting = false,
    },
 }
+
+vim.api.nvim_create_autocmd('PackChanged', {
+   desc = 'TSUpdate',
+   group = vim.api.nvim_create_augroup('nvim-tree-sitter-update', { clear = true }),
+   callback = function(event)
+      if event.data.kind == 'update' then
+         vim.cmd('TSUpdate')
+      end
+   end,
+})

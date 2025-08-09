@@ -3,7 +3,7 @@ require('cord').setup {
       tooltip = 'God-Tier Text Editor',
    },
    idle = {
-      enabled = false,
+      enabled = true,
    },
    text = {
       workspace = '',
