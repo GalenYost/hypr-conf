@@ -28,7 +28,8 @@ icons.tweak_lsp_kind()
 
 pick.setup()
 
-local ignore_patterns = {
+local patterns = {
+   "**",
    "!*node_modules/**",
    "!*target/**",
    "!*.git/**",
@@ -39,7 +40,10 @@ vim.keymap.set(
    '<leader>f',
    function()
       pick.builtin.files({
-         globs = ignore_patterns,
+         tool = "git",
+         globs = patterns,
+         show_hidden = true,
+         no_ignore = true,
       })
    end,
    { noremap = true, silent = true }
@@ -50,7 +54,10 @@ vim.keymap.set(
    '<leader>g',
    function()
       pick.builtin.grep_live({
-         globs = ignore_patterns,
+         globs = patterns,
+         show_hidden = true,
+         no_ignore = true,
+         no_ignore_dot = true,
       })
    end,
    { noremap = true, silent = true }
