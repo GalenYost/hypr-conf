@@ -1,41 +1,39 @@
-require 'keymap'
-require 'options'
+require("options")
+require("keymap")
 
-vim.pack.add({
-   { src = 'https://github.com/vyfor/cord.nvim',                 name = 'cord' },
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+   if vim.v.shell_error ~= 0 then
+      vim.api.nvim_echo({
+         { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+         { out,                            "WarningMsg" },
+         { "\nPress any key to exit..." },
+      }, true, {})
+      vim.fn.getchar()
+      os.exit(1)
+   end
+end
 
-   {
-      src = 'https://github.com/nvim-lualine/lualine.nvim',
-      name = 'lualine',
-      { src = 'https://github.com/nvim-tree/nvim-web-devicons', name = 'devicons' },
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+   spec = {
+      { import = "configs" },
    },
-
-   { src = 'https://github.com/zaldih/themery.nvim',             name = 'themery' },
-   { src = 'https://github.com/echasnovski/mini.nvim',           name = 'mini' },
-   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', name = 'tree-sitter' },
-
-   {
-      src = 'https://github.com/neovim/nvim-lspconfig',
-      name = 'lsp',
-      { src = 'https://github.com/williamboman/nvim-lsp-installer' },
-      { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
-      { src = 'https://github.com/hrsh7th/cmp-buffer' },
-      { src = 'https://github.com/hrsh7th/cmp-path' },
-      { src = 'https://github.com/hrsh7th/cmp-cmdline' },
-      { src = 'https://github.com/hrsh7th/nvim-cmp' },
-      { src = 'https://github.com/hrsh7th/cmp-vsnip' },
-      { src = 'https://github.com/hrsh7th/vim-vsnip' },
+   checker = {
+      enabled = true,
+      notify = false,
    },
-
-   { src = 'https://github.com/folke/tokyonight.nvim',     name = 'tokyonight' },
-   { src = 'https://github.com/bluz71/vim-moonfly-colors', name = 'moonfly' },
-   { src = 'https://github.com/vague2k/vague.nvim',        name = 'vague' },
-   { src = 'https://github.com/rose-pine/neovim',          name = 'rose-pine' },
+   ui = {
+      notify = false,
+   },
 })
 
-require 'configs.cord'
-require 'configs.lsp'
-require 'configs.lualine'
-require 'configs.mini'
-require 'configs.treesitter'
-require 'configs.themery'
+vim.api.nvim_create_autocmd("User", {
+   pattern = "LazyReload",
+   callback = function()
+      vim.notify = function(_) end
+   end,
+})
