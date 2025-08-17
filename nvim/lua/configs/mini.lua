@@ -5,13 +5,6 @@ local flags = {
    "--glob", "!.git/*",
 }
 
-local themes = {
-   tokyonight = "tokyonight",
-   vague = "vague",
-   moonfly = "moonfly",
-   rose_pine = "rose-pine",
-}
-
 local function files()
    local cmd = "rg " .. table.concat(flags, " ")
    return vim.split(vim.fn.system(cmd), "\n")
@@ -26,8 +19,6 @@ return {
       local icons = require 'mini.icons'
       local pick = require 'mini.pick'
 
-      local themery = require 'themery'
-
       misc.setup_termbg_sync()
       misc.setup_restore_cursor()
 
@@ -41,7 +32,14 @@ return {
       icons.setup()
       icons.tweak_lsp_kind()
 
-      pick.setup()
+      pick.setup({
+         window = {
+            config = {
+               border = 'double', -- none | single | double | rounded | shadow
+            },
+            style = 'minimal',
+         },
+      })
 
       vim.keymap.set(
          'n',
@@ -49,6 +47,7 @@ return {
          function()
             pick.start({
                source = {
+                  name = 'File Search',
                   items = files(),
                },
             })
@@ -59,27 +58,10 @@ return {
       vim.keymap.set(
          'n',
          '<leader>g',
-         function()
-            pick.builtin.grep_live({})
-         end,
+         pick.builtin.grep_live,
          { noremap = true, silent = true, }
       )
 
-      vim.keymap.set(
-         'n',
-         '<leader>t',
-         function()
-            pick.start({
-               source = {
-                  items = vim.tbl_keys(themes),
-                  name = 'Themes Picker',
-                  choose = function(item)
-                     themery.setThemeByName(item, true)
-                  end,
-               },
-            })
-         end,
-         { noremap = true, silent = true }
-      )
+      vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = nil })
    end,
 }

@@ -26,14 +26,4 @@ require("lazy").setup({
       enabled = true,
       notify = false,
    },
-   ui = {
-      notify = false,
-   },
-})
-
-vim.api.nvim_create_autocmd("User", {
-   pattern = "LazyReload",
-   callback = function()
-      vim.notify = function(_) end
-   end,
 })
