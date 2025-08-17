@@ -1,22 +1,12 @@
 return {
-   "blazkowolf/gruber-darker.nvim",
+   "vague2k/vague.nvim",
+   lazy = false,
+   priority = 1000,
    config = function()
-      require("gruber-darker").setup({
-         bold = true,
-         invert = {
-            signs = false,
-            tabline = false,
-            visual = false,
-         },
-         italic = {
-            strings = false,
-            comments = false,
-            operators = false,
-            folds = false,
-         },
-         undercurl = true,
-         underline = true,
+      require("vague").setup({
+         transparent = true,
+         italic = false,
       })
-      vim.cmd.colorscheme("gruber-darker")
+      vim.cmd("colorscheme vague")
    end
 }

@@ -6,10 +6,10 @@ return {
    },
    opts = {
       options = {
-         icons_enabled = true,
-         theme = 'auto',
+         icons_enabled = false,
+         theme = 'vague',
          component_separators = { left = '', right = '' },
-      	 section_separators = { left = '', right = '' },
+         section_separators = { left = '', right = '' },
          disabled_filetypes = {
             statusline = {},
             winbar = {},
