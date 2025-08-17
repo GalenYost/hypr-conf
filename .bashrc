@@ -16,9 +16,6 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
 # env
-export BROWSER=firefox
-export TERM=foot
-export EDITOR=nvim
 export RUSTFLAGS="-A dead_code"
 export NVM_DIR="$HOME/.nvm"
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
