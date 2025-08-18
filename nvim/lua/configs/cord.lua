@@ -7,6 +7,7 @@ return {
       },
       idle = {
          enabled = true,
+         timeout = 900000,
       },
       text = {
          workspace = '',

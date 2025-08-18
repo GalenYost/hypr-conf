@@ -30,6 +30,7 @@ return {
          denols = {},
          svelte = {},
          jsonls = {},
+         sqlls = {},
          lua_ls = {
             settings = {
                Lua = {
