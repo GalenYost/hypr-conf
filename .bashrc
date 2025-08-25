@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
@@ -62,8 +58,26 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
 
+alias gm='git merge'
+alias gms='git merge --no-commit --no-ff'
+
+alias bat_info='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias bat='bat_info | grep -e "percentage" -e "state"'
+
 # aliases (functions)
 cpp_run() {
   local name="${1:-main}"
   g++ "./$name.cpp" -o "./$name" && "./$name"
+}
+
+git_apply() {
+    local branch1="${1:-master}"
+    local branch2="${2:-main}"
+    local file="$3"
+
+    if [ -n "$file" ]; then
+        gd "$branch1..$branch2" -- "$file" | git apply -3
+    else
+        gd "$branch1..$branch2" | git apply -3
+    fi
 }
