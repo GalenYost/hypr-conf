@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
@@ -61,6 +57,12 @@ alias gb='git branch'
 
 alias gi='git init'
 alias gcl='git clone'
+
+alias gm='git merge'
+alias gms='git merge --no-commit --no-ff'
+
+alias bat_info='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias bat='bat_info | grep -e "percentage" -e "state"'
 
 # aliases (functions)
 cpp_run() {
