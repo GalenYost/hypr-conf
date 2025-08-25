@@ -20,6 +20,11 @@ return {
          clangd = {},
          rust_analyzer = {},
          prismals = {},
+         htmx = {},
+         html = {},
+         tailwindcss = {
+            workspace_required = false,
+         },
          ts_ls = {
             root_dir = function(fname)
                local deno = lspconfig.util.root_pattern("deno.json", "deno.json")(fname)
@@ -106,7 +111,7 @@ return {
       end
 
       vim.api.nvim_create_autocmd("BufWritePre", {
-         pattern = "*.rs",
+         pattern = { "*.rs", "*.html", "*.json", "*.lua" },
          callback = function(args)
             vim.lsp.buf.format({ bufnr = args.buf, async = false })
          end,
@@ -123,20 +128,6 @@ return {
                   return client.name == "prismals"
                end,
             })
-         end,
-      })
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-         pattern = "*.json",
-         callback = function(args)
-            vim.lsp.buf.format({ bufnr = args.buf, async = false })
-         end,
-      })
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-         pattern = "*.lua",
-         callback = function(args)
-            vim.lsp.buf.format({ bufnr = args.buf, async = false })
          end,
       })
    end,
