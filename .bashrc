@@ -69,3 +69,15 @@ cpp_run() {
   local name="${1:-main}"
   g++ "./$name.cpp" -o "./$name" && "./$name"
 }
+
+git_apply() {
+    local branch1="${1:-master}"
+    local branch2="${2:-main}"
+    local file="$3"
+
+    if [ -n "$file" ]; then
+        gd "$branch1..$branch2" -- "$file" | git apply -3
+    else
+        gd "$branch1..$branch2" | git apply -3
+    fi
+}
