@@ -7,7 +7,7 @@ return {
    opts = {
       options = {
          icons_enabled = false,
-         theme = 'vague',
+         theme = 'auto',
          component_separators = { left = '', right = '' },
          section_separators = { left = '', right = '' },
          disabled_filetypes = {
