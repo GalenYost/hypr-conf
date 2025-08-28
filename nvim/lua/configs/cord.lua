@@ -17,7 +17,6 @@
 
 return {
    'andweeb/presence.nvim',
-   event = 'UIEnter',
    opts = {
       neovim_image_text = "God-Tier Text Editor",
       main_image        = "file",
