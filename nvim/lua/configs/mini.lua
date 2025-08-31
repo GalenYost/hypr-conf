@@ -11,8 +11,7 @@ local function files()
 end
 
 return {
-   'echasnovski/mini.nvim',
-   name = 'mini',
+   'nvim-mini/mini.nvim',
    config = function()
       local misc = require 'mini.misc'
       local comment = require 'mini.comment'
